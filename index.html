@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+<style>
+
+body {
+  background-image: url({{ url_for('static', filename='templates/air quality image.JPG') }})
+
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+label:after {
+  content: ": ";
+ 
+}
+
+label {
+  
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+  width: 100px;
+  text-align:center;
+}
+
+form button[type='submit']  {
+    display: inline-block;
+    width: 70px;
+
+
+ 
+}
+
+
+
+
+
+
+</style> 
+
+</head>
+
+<body background="{{ url_for('static', filename='air quality image.JPG') }}">
+ <div class="login"  align="center" >
+	<b><font  style="color:white" "font-family:verdana" size="5"><h1 >Air Quality Prediction</h1></font></b>
+
+    <form action="{{ url_for('predict')}}"method="post">
+        <label for="Temperature">Temperature</label>
+        <input type="text" name="Temperature" id="Temperature" placeholder="" required="required"/><br><br><br>
+	<label for="Humidity">Humidity</label>
+	<input type="text" name="Humidity" id="Humidity" placeholder="" required="required"/><br><br><br>
+	<label for="Wind Speed">Wind Speed</label>
+    	<input type="text" name="Wind Speed" id="Wind Speed" placeholder="" required="required"/><br><br><br>
+        <label for="Visibility">Visibility</label>
+    	<input type="text" name="Visibility" id="Visibility" placeholder="" required="required"/><br><br><br>
+        <label for="Pressure">Pressure</label>
+    	<input type="text" name="Pressure" id="Pressure" placeholder="" required="required"/><br><br><br>
+        <label for="so2">so2</label>
+    	<input type="text" name="so2" id="so2" placeholder="" required="required"/><br><br><br>
+        <label for="no2">no2</label>
+    	<input type="text" name="no2" id="no2" placeholder="" required="required"/><br><br><br>
+        <label for="Rainfall">Rainfall</label>
+    	<input type="text" name="Rainfall" id="Rainfall" placeholder="" required="required"/><br><br><br>
+        <label for="PM10">PM10</label>
+    	<input type="text" name="PM10" id="PM10" placeholder="" required="required"/><br><br><br>
+        <label for="PM25">PM25</label>
+    	<input type="text" name="PM25" id="PM25" placeholder="" required="required"/><br><br><br>
+		 
+      <center> <button type="submit"  class="btn btn-primary btn-block btn-large">Predict</button></center>
+       
+    </form>
+
+   <br>
+   <br>
+     <b><font  style="color:white" "font-family:verdana" size="5">{{ prediction_text}}</font></b>
+   <br>
+     <b><font  style="color:white" "font-family:verdana" size="5">{{ prediction_text1}}</font></b>	
+ </div>
+
+
+</body>
+</html>
